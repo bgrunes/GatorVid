@@ -1,0 +1,8 @@
+{% for video in videos %}
+    <div>
+        <h3>{{ video.title }}</h3>
+        <p>{{ video.description }}</p>
+        <img src="{{ video.thumbnail }}" alt="Video Thumbnail">
+        <iframe width="560" height="315" src="https://youtube.com/embed/{{  video.video_id }}" allowfullscreen></iframe>
+    </div>
+{%  endfor %}
