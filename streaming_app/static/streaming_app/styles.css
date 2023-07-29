@@ -1,0 +1,10 @@
+.horizontal-scrollable > .row {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+  
+.horizontal-scrollable > .row > .col-xs-4 {
+	width: 18rem;
+	display: inline-block;
+	float: none;
+}
