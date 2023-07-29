@@ -4,7 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
-	<link rel="stylesheet" href="static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css">
+	{% load static %}
+	<link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
 </head>
 <body>
 	<!--NavBar-->
@@ -36,18 +37,19 @@
 
 		  <!--Class Scrolling Group-->
 		  <div class="d-flex flex-row flex-nowrap overflow-auto p-2">
-
+			{% for course in courses %}
 			<!--CARD TEMPLATE-->
-			<div class="card text-center text-white bg-secondary" style="width: 18rem;">
-				<div class="card-body">
-					<h5 class="card-title">Class Name</h5>
-					<p class="card-text">Class Code</p>
-					<hr>
-					<p class="card-text"><small>Last Meeting</small></p>
-					<img class="card-img-top" src="static/streaming_app/images/Content.png" alt="Card image cap">
-					<a href="{% url 'course' %}" class="btn btn-primary m-2">Go To Course Homepage</a>
+				<div class="card text-center text-white bg-secondary" style="width: 18rem;">
+					<div class="card-body">
+						<h5 class="card-title">{{ course.name }}</h5>
+						<p class="card-text">{{ course.course_code }}</p>
+						<hr>
+						<p class="card-text"><small>Last Meeting: {{ course.end_date}}</small></p>
+						<img class="card-img-top" src="static/streaming_app/images/Content.png" alt="Card image cap">
+						<a href="{% url 'course' course.course_code %}" class="btn btn-primary m-2">Go To Course Homepage</a>
+					</div>
 				</div>
-			</div>
+			{% endfor %}
 			<!--==============-->
 		  </div>
 	  </div>
