@@ -11,7 +11,15 @@ def indexview(request):
     return render(request, 'index.html')
 
 
+def course_lecture(request):
+    return render(request, 'course_lecture.html')
+
+
+def accountview(request):
+    return render(request, 'account.html')
+
+
 class VideoListView(ListView):
     model = Video
-    template_name = 'video_list.html'
+    template_name = 'templates/streaming_app/video_list.html'
     context_object_name = 'videos'

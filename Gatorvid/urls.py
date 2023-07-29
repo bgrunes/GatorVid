@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import include, path
 from streaming_app import views
 
-
+app_name = "GatorVid"
 urlpatterns = [
-    path('', include("streaming_app.urls")),
+    path('', include('streaming_app.urls')),
     path('admin/', admin.site.urls, name='admin'),
 ]
