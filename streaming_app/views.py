@@ -3,7 +3,7 @@ import os
 from django.views.generic import ListView
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-from .models import Video,Course
+from .models import Video, Course
 
 
 # Create your views here.
@@ -14,7 +14,7 @@ def indexview(request):
 
 
 def course_lecture(request, course_code):
-    course = Course.objects.filter("course_code")
+    course = get_object_or_404(Course, course_code=course_code)
     return render(request, 'course_lecture.html', {"course": course})
 
 

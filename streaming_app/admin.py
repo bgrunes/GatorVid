@@ -1,7 +1,8 @@
 from django.contrib import admin
-from .models import Course, Video
+from .models import Course, Video, Club
 
 
+# Custom admin layout for adding new courses
 class CourseAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Basic Information", {"fields": ["name", "course_code", "description"]}),
@@ -13,4 +14,5 @@ class CourseAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Course, CourseAdmin)
+admin.site.register(Club)
 admin.site.register(Video)

@@ -49,7 +49,7 @@
 						<h5 class="card-title">{{ course.name }}</h5>
 						<p class="card-text">{{ course.course_code }}</p>
 						<hr>
-						<p class="card-text"><small>Last Meeting: {{ course.end_date}}</small></p>
+						<p class="card-text"><small>Last Meeting: {{ course.end_date }}</small></p>
 						<img class="card-img-top" src="../static/streaming_app/images/Content.png" alt="Card image cap">
 					</div>
 					<a href="{% url 'course' course.course_code %}" class="btn btn-primary ms-4 me-4 mb-3">Go To Course Homepage</a>

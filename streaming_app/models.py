@@ -1,4 +1,5 @@
 from django.db import models
+from googleapiclient.discovery import build
 
 
 # Create your models here.
@@ -9,6 +10,19 @@ class Course(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
 
+    # Need to add Video Files when API is introduced
+
+    def __str__(self):
+        return self.name
+
+
+# Clubs and Organizations Object
+class Club(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+
+    # Need to add Video Files when API is introduced
+
     def __str__(self):
         return self.name
 
@@ -17,7 +31,6 @@ class Video(models.Model):
     course = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    video_file = models.FileField(upload_to='videos/')
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
