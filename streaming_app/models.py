@@ -19,7 +19,10 @@ class Course(models.Model):
 # Clubs and Organizations Object
 class Club(models.Model):
     name = models.CharField(max_length=100)
-    description = models.TextField()
+    purpose = models.TextField()
+    email = models.EmailField()
+    announcements = models.TextField()
+    events = models.TextField()
 
     # Need to add Video Files when API is introduced
 

@@ -12,7 +12,17 @@ class CourseAdmin(admin.ModelAdmin):
     list_display = ["name", "course_code", "start_date", "end_date"]
 
 
+class ClubAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {"fields": ["name", "purpose"]}),
+        ("Announcements and Events", {"fields": ["announcements", "events"]}),
+        ("Contact Info", {"fields": ["email"]}),
+    ]
+
+    list_display = ["name", "events"]
+
+
 # Register your models here.
 admin.site.register(Course, CourseAdmin)
-admin.site.register(Club)
+admin.site.register(Club, ClubAdmin)
 admin.site.register(Video)
