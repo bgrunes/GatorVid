@@ -2,8 +2,12 @@
 <html lang="en-us">
     <body>
         <h1>Welcome to {{ course.name }}</h1>
-        <p>This is where the videos for the course will be. <a href="{% url 'courses' %}">Go Back</a></p>
+        <p>This is where the videos for the course will be. <a href="{% url 'index' %}">Go Back</a></p>
 
         <p> {{ course.description }} </p>
+
+        <hr>
+        <h2>Lecture Videos</h2>
+        <p><a href="{% url 'video' course.course_code %}">Click Here For Video</a></p>
     </body>
 </html>

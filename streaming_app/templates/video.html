@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lecture Video</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <div>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <p>{{ description }}</p>
+
+    <h2>Discussion</h2>
+    <ul>
+        {% for username, comment in comments %}
+            <li><strong>{{ username }}: </strong>{{ comment }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
