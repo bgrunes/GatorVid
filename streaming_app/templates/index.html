@@ -13,7 +13,7 @@
 </head>
 <body>
 	<!--NavBar-->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+	<nav class="navbar navbar-expand navbar-dark bg-secondary">
 		<div class="container-fluid">
 		  <a class="navbar-brand" href="">GatorVid</a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +46,7 @@
 				<!--CARD TEMPLATE-->
 				<div class="card text-white bg-secondary col-xs-4">
 					<div class="card-body text-center">
-						<h5 class="card-title">{{ course.name }}</h5>
+						<h5 class="card-title text-wrap">{{ course.name }}</h5>
 						<p class="card-text">{{ course.course_code }}</p>
 						<hr>
 						<p class="card-text"><small>Last Meeting: {{ course.end_date }}</small></p>
@@ -54,9 +54,9 @@
 					</div>
 					<a href="{% url 'course' course.course_code %}" class="btn btn-primary ms-4 me-4 mb-3">Go To Course Homepage</a>
 				</div>
-				</div>
+				<!--==============-->
 			{% endfor %}
-			<!--==============-->
+			</div>
 		  </div>
 	</div>
 </body>
