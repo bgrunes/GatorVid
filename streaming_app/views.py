@@ -40,7 +40,7 @@ def video_view(request, course_code):
     response = youtube.videos().list(
         part='snippet',
         id=video_id,
-    ).execute
+    ).execute()
 
     if response['items']:
         video_info = response['items'][0]['snippet']
@@ -71,7 +71,6 @@ def video_view(request, course_code):
         'comments': comments,
         'next_page_token': next_page_token,
         'video_id': video_id,
-        'course': course
     }
 
     return render(request, 'video.html', context)
