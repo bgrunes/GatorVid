@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ title }}</title>
+	<title>Home</title>
 	<!-- For Juno Testing Visuals
 	<link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
 
@@ -12,7 +12,7 @@
 	<link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
 </head>
 <body>
-    <!--NavBar-->
+	<!--NavBar-->
 	<nav class="navbar navbar-expand navbar-dark bg-secondary">
 		<div class="container-fluid">
 		  <a class="navbar-brand" href="">GatorVid</a>
@@ -22,7 +22,7 @@
 		  <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
 			<ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
 				<li class="nav-item">
-					<a class="nav-link active" href="{% url 'index' %}">Home</a>
+					<a class="nav-link active" href="">Home</a>
 				</li>
 				<li class="nav-item">
 					<a class="navbar-brand" href="{% url 'account' %}">
@@ -34,44 +34,16 @@
 		</div>
 		</div>
 	</nav>
-
-    <h1>{{ title }}</h1>
-    <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <p>{{ description }}</p>
-
-    <h2>Discussion</h2>
-    <ul id="item_list">
-        {% for username, comment in comments %}
-            <li><strong>{{ username }}: </strong>{{ comment }}</li>
-        {% endfor %}
-    </ul>
-
-    <!-- To Comment -->
-    <form>
-        <label for="text_input">Contribute to the lecture discussion:</label>
-        <input type="text" id="text_input" name="text_input">
-        <input type="button" value="Submit" onclick="addToDiscussion()">
+    {% for next_question in latest_question_list %}
+    <form action="{% url 'streaming_app:quiz' question.id %}" method="post">
+    {%  csrf_token %}
+        <fieldset>
+            <legend><h1>{{ question.question_text }}</h1></legend>
+            {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+        </fieldset>
     </form>
-
-    <script>
-        function addToDiscussion() {
-            var inputValue = document.getElementById("text_input").value;
-
-            if (inputValue.trim() !== "") {
-                var newItem = document.createElement("li");
-
-                newItem.textContent = inputValue;
-
-                document.getElementById("item_list").appendChild(newItem);
-
-                document.getElementById("text_input").value = "";
-            }
-        }
-    </script>
-
-    <h2>Quiz</h2>
-    <p>Test yourself and earn prizes by clicking <a href="{% url 'video_quiz' course.course_code %}">here!</a></p>
 </body>
-</html>

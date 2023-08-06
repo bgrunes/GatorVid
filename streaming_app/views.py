@@ -1,9 +1,12 @@
 import os
 
+from django.db.models import F
+from django.http import HttpResponseRedirect
+from django.urls import reverse
 from django.views.generic import ListView
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-from .models import Video, Course, Club
+from .models import Video, Course, Club, Question, Choice
 from googleapiclient.discovery import build
 
 
@@ -76,6 +79,15 @@ def video_view(request, course_code):
         'comments': comments,
         'next_page_token': next_page_token,
         'video_id': video_id,
+        'course': course,
     }
 
     return render(request, 'video.html', context)
+
+
+def quiz(request, course_code):
+    course = get_object_or_404(Course, course_code=course_code)
+    questions = Question.objects.all()
+
+    # Always return an HttpResponse after successfully dealing with POST data
+    return render(request, {"question": questions, "course": course})

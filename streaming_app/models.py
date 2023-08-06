@@ -1,3 +1,5 @@
+from datetime import timezone, datetime
+
 from django.db import models
 from googleapiclient.discovery import build
 
@@ -30,11 +32,23 @@ class Club(models.Model):
         return self.name
 
 
-class Video(models.Model):
-    title = models.CharField(max_length=500)
-    description = models.TextField()
-    video_id = models.CharField(max_length=120)
-    comments = []
+class Question(models.Model):
+    question_text = models.CharField(max_length=300)
+    pub_date = models.DateTimeField("date published")
 
     def __str__(self):
-        return self.title
+        return self.question_text
+
+    def was_published_recently(self):
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+    is_correct_answer = models.TextField()
+
+    def __str__(self):
+        return self.choice_text
