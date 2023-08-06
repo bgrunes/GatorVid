@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.generic import ListView
 from django.conf import settings
 from django.shortcuts import render, get_object_or_404
-from .models import Video, Course, Club, Question, Choice
+from .models import Course, Club, Question, Choice
 from googleapiclient.discovery import build
 
 
@@ -89,5 +89,9 @@ def quiz(request, course_code):
     course = get_object_or_404(Course, course_code=course_code)
     questions = Question.objects.all()
 
+    context = {
+        "question": questions,
+        "course": course,
+    }
     # Always return an HttpResponse after successfully dealing with POST data
-    return render(request, {"question": questions, "course": course})
+    return render(request, 'video_quiz.html', context)

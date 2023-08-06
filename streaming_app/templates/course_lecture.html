@@ -15,7 +15,7 @@
     <!--NavBar-->
 	<nav class="navbar navbar-expand navbar-dark bg-secondary">
 		<div class="container-fluid">
-		  <a class="navbar-brand" href="">GatorVid</a>
+		  <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
 		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		  </button>
@@ -36,7 +36,7 @@
 	</nav>
 
     <h1>Welcome to {{ course.name }}</h1>
-    <p>This is where the videos for the course will be. <a href="{% url 'index' %}">Go Back</a></p>
+    <p>This is where the videos for the course will be.</p>
 
     <p> {{ course.description }} </p>
 
