@@ -31,10 +31,10 @@ class Club(models.Model):
 
 
 class Video(models.Model):
-    title = models.CharField(max_length=500)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, default=None)
+    title = models.CharField(max_length=100)
     description = models.TextField()
-    video_id = models.CharField(max_length=120)
-    comments = []
+    uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title
