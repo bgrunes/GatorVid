@@ -1,7 +1,7 @@
 import os
 
 from django.db.models import F
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views.generic import ListView
 from django.conf import settings
@@ -11,6 +11,10 @@ from googleapiclient.discovery import build
 
 
 # Create your views here.
+def login_view(request):
+    return render(request, 'login.html')
+
+
 def index_view(request):
     courses = Course.objects.all()
     clubs = Club.objects.all()
