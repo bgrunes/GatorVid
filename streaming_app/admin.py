@@ -22,7 +22,16 @@ class ClubAdmin(admin.ModelAdmin):
     list_display = ["name", "events"]
 
 
+class VideoAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {"fields": ["title", "description"]}),
+        ("Video Information", {"fields": ["video_id"]}),
+    ]
+
+    list_display = ["title", "video_id"]
+
+
 # Register your models here.
 admin.site.register(Course, CourseAdmin)
 admin.site.register(Club, ClubAdmin)
-admin.site.register(Video)
+admin.site.register(Video, VideoAdmin)

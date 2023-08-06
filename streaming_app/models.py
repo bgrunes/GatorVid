@@ -31,6 +31,10 @@ class Club(models.Model):
 
 
 class Video(models.Model):
+    title = models.CharField(max_length=500)
+    description = models.TextField()
+    video_id = models.CharField(max_length=120)
+    comments = []
 
     def __str__(self):
         return self.title

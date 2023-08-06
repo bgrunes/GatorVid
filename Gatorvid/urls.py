@@ -20,6 +20,6 @@ from streaming_app import views
 
 app_name = "GatorVid"
 urlpatterns = [
-    path('', include('streaming_app.urls')),
     path('admin/', admin.site.urls, name='admin'),
+    path('', include('streaming_app.urls')),
 ]

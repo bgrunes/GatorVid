@@ -10,7 +10,12 @@ from googleapiclient.discovery import build
 # Create your views here.
 def index_view(request):
     courses = Course.objects.all()
-    context = {"courses": courses}
+    clubs = Club.objects.all()
+    context = {
+        "courses": courses,
+        "clubs": clubs,
+    }
+
     return render(request, 'index.html', context)
 
 
