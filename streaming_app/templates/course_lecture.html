@@ -73,7 +73,8 @@
                 <div class="col">
                     <p class="mb-1 mt-4">Last Watched:</p>
                     <h3>Video Title</h3>
-                    <img src="../static/streaming_app/images/Content.png" width="600" height="375">
+                    <!-- <img src="../static/streaming_app/images/Content.png" width="600" height="375"> -->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/97Gb9TS3MJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 </div>
                 <div class="col">
                     <h5 class="mt-4">Description</h5>
@@ -85,15 +86,82 @@
                         <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
                         <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
                         <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
-                    </span>
-                    <a href="#" class="btn btn-primary mt-4">Show me other lectures on this topic</a>
+                    </span><br>
+                    <p><a href="{% url 'video' course.course_code %}" class="btn btn-primary mt-4">Show me other lectures on this topic</a></p>
                 </div>
             </div>
         </div>
-
+        
+        
+        
+        <div class="container mt-5 mb-2">
+            <p>Previous Meetings</p>
+            <hr class="mb-4">
+            <div class="row p-2" style="background-color: aliceblue;">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Square Linear Systems</button>
+                </div>
+                <div class="col-auto">
+                    <p>May 5, 2019</p>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Overdetermined Linear Systems</button>
+                </div>
+                <div class="col-auto">
+                    <p>May 7, 2019</p>
+                </div>
+            </div>
+            <div class="row p-2" style="background-color: aliceblue;">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Piecewise Interpolation</button>
+                </div>
+                <div class="col-auto">
+                    <p>May 9, 2019</p>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Floating Point Operations</button>
+                </div>
+                <div class="col-auto">
+                    <p>May 12, 2019</p>
+                </div>
+            </div>
+            <div class="row p-2" style="background-color: aliceblue;">
+                <div class="col">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Algorithms</button>
+                </div>
+                <div class="col-auto">
+                    <p>May 14, 2019</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Work in Progress</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Some features are not available yet, but will be implemented soon. Thank you!
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        
         <footer class="container text-center mt-5">
             <hr>
             <p><small>GatorVid, Team Two, UF, All rights reserved. 2023©</small></p>
         </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

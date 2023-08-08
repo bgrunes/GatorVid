@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
-	<!-- For Juno Testing Visuals
-	<link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
+	<!-- For Juno Testing Visuals -->
+	<!-- <link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
 
 	<link rel="stylesheet" href="../static/streaming_app/styles.css">
 	{% load static %}
@@ -14,64 +14,106 @@
 <body>
     <!--NavBar-->
 	<nav class="navbar navbar-expand navbar-dark bg-secondary">
-		<div class="container-fluid">
-		  <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-			<ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
-				<li class="nav-item">
-					<a class="nav-link active" href="{% url 'index' %}">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="navbar-brand" href="{% url 'account' %}">
-						<img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
-						<!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
-					</a>
-				</li>
-			</ul>
-		</div>
-		</div>
-	</nav>
+        <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+            <ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'index' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="navbar-brand" href="{% url 'account' %}">
+                        <img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
+                        <!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
 
-    <h1>{{ title }}</h1>
-    <div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <p>{{ description }}</p>
-
-    <h2>Discussion</h2>
-    <ul id="item_list">
-        {% for username, comment in comments %}
+    <div class="container mt-2 mb-5">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-auto text-center">
+                <p class="mb-1 mt-4"><small>Currently Watching:</small></p>
+                <h3>{{ title }}</h3>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="col">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="false">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="card">
+                            <div class="card-body m-5">
+                              <h5 class="card-title">Card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                        2
+                      </div>
+                      <div class="carousel-item">
+                        3
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+        
+        <h5 class="mt-4">Description</h5>
+        <p>{{ description }}</p>
+        
+        <h5 class="mt-4">Discussion</h5>
+        <ul id="item_list">
+            {% for username, comment in comments %}
             <li><strong>{{ username }}: </strong>{{ comment }}</li>
-        {% endfor %}
-    </ul>
-
-    <!-- To Comment -->
-    <form>
-        <label for="text_input">Contribute to the lecture discussion:</label>
-        <input type="text" id="text_input" name="text_input">
-        <input type="button" value="Submit" onclick="addToDiscussion()">
-    </form>
-
-    <script>
-        function addToDiscussion() {
-            var inputValue = document.getElementById("text_input").value;
-
-            if (inputValue.trim() !== "") {
-                var newItem = document.createElement("li");
-
-                newItem.textContent = inputValue;
-
-                document.getElementById("item_list").appendChild(newItem);
-
-                document.getElementById("text_input").value = "";
+            {% endfor %}
+        </ul>
+        
+        <!-- To Comment -->
+        <form>
+            <label for="text_input">Contribute to the lecture discussion:</label>
+            <input type="text" id="text_input" name="text_input">
+            <input type="button" value="Submit" onclick="addToDiscussion()">
+        </form>
+        
+        <script>
+            function addToDiscussion() {
+                var inputValue = document.getElementById("text_input").value;
+                
+                if (inputValue.trim() !== "") {
+                    var newItem = document.createElement("li");
+                    
+                    newItem.textContent = inputValue;
+                    
+                    document.getElementById("item_list").appendChild(newItem);
+                    
+                    document.getElementById("text_input").value = "";
+                }
             }
-        }
-    </script>
-
-    <h2>Quiz</h2>
-    <p>Test yourself and earn prizes by clicking <a href="{% url 'video_quiz' course.course_code %}">here!</a></p>
+        </script>
+    
+        <h2>Quiz</h2>
+        <p>Test yourself and earn prizes by clicking <a href="{% url 'video_quiz' course.course_code %}">here!</a></p>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </div>
 </body>
 </html>
