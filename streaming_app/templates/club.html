@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <title>GatorVid</title>
+	    <title>Club Page</title>
 	    <!-- For Juno Testing Visuals
 	    <link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
 
@@ -12,6 +12,29 @@
 	    <link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
     </head>
     <body>
-        <h1>Welcome to {{ club.name }}</h1>
+        	<!--NavBar-->
+	    <nav class="navbar navbar-expand navbar-dark bg-secondary">
+		    <div class="container-fluid">
+		    <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
+		    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="navbar-toggler-icon"></span>
+		    </button>
+		    <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+			    <ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
+				    <li class="nav-item">
+					    <a class="nav-link active" href="{% url 'index' %}">Home</a>
+				    </li>
+				    <li class="nav-item">
+					    <a class="navbar-brand" href="{% url 'account' %}">
+						    <img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
+						    <!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+					    </a>
+				    </li>
+			    </ul>
+		    </div>
+		    </div>
+	    </nav>
+        <h1>Welcome to your Club's page!</h1>
+        <p>This page is not yet available. Please try again later.</p>
     </body>
 </html>

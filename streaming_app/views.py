@@ -31,9 +31,8 @@ def course_lecture(request, course_code):
     return render(request, 'course_lecture.html', {"course": course})
 
 
-def club_view(request, name):
-    club = get_object_or_404(Club, name=name)
-    return render(request, 'club.html', {"club": club})
+def club_view(request):
+    return render(request, 'club.html')
 
 
 def account_view(request):
