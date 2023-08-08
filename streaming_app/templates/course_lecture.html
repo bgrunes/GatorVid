@@ -1,47 +1,99 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{{ course.course_code }}: {{ course.name }}</title>
-	<!-- For Juno Testing Visuals
-	<link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <!-- For Juno Testing Visuals -->
+        <!-- <link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
+    
+        <link rel="stylesheet" href="../static/streaming_app/styles.css">
+        {% load static %}
+        <link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-expand navbar-dark bg-secondary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">GatorVid</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                    <ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="navbar-brand" href="{% url 'account' %}">
+                                <img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
+                                <!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--==============-->
 
-	<link rel="stylesheet" href="../static/streaming_app/styles.css">
-	{% load static %}
-	<link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
-</head>
-<body>
-    <!--NavBar-->
-	<nav class="navbar navbar-expand navbar-dark bg-secondary">
-		<div class="container-fluid">
-		  <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
-		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		  </button>
-		  <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-			<ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
-				<li class="nav-item">
-					<a class="nav-link active" href="{% url 'index' %}">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="navbar-brand" href="{% url 'account' %}">
-						<img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
-						<!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
-					</a>
-				</li>
-			</ul>
-		</div>
-		</div>
-	</nav>
+        <div class="bg-dark bg-gradient mb-3">
+            <div class="container pt-5 pb-5">
+                <h1 class="text-white">{{ course.name }}</h1>
+                <h4 class="text-white">{{ course.course_code }}</h4>
+            </div>
+        </div>
+        
+        <div class="container">
+            
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-white bg-secondary rounded-pill">
+                        Lectures
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black">
+                        Forum
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-black">
+                        Archive
+                    </a>
+                </li>
+            </ul>
+            <hr class="p-auto m-auto">
+        </div>
+        
+        <div class="container mt-2 mb-2">
+    
+            <!-- <p> {{ course.description }} </p> -->
+            <!-- <p><a href="{% url 'video' course.course_code %}">Click Here For Video</a></p> -->
+            <div class="row d-flex align-items-center">
+                <div class="col">
+                    <p class="mb-1 mt-4">Last Watched:</p>
+                    <h3>Video Title</h3>
+                    <img src="../static/streaming_app/images/Content.png" width="600" height="375">
+                </div>
+                <div class="col">
+                    <h5 class="mt-4">Description</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a massa vitae ex mollis fermentum. Mauris dapibus tincidunt varius. Ut commodo purus ac urna semper, eget placerat nulla tincidunt.</p>
+                    <h5 class="mt-4">Rating</h5>
+                    <span>
+                        <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
+                        <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
+                        <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
+                        <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
+                        <img src="../static/streaming_app/images/icons8-star-50.png" alt="star">
+                    </span>
+                    <a href="#" class="btn btn-primary mt-4">Show me other lectures on this topic</a>
+                </div>
+            </div>
+        </div>
 
-    <h1>Welcome to {{ course.name }}</h1>
-    <p>This is where the videos for the course will be.</p>
-
-    <p> {{ course.description }} </p>
-
-    <hr>
-    <h2>Lecture Videos</h2>
-    <p><a href="{% url 'video' course.course_code %}">Click Here For Video</a></p>
-</body>
+        <footer class="container text-center mt-5">
+            <hr>
+            <p><small>GatorVid, Team Two, UF, All rights reserved. 2023©</small></p>
+        </footer>
+    </body>
 </html>

@@ -35,6 +35,9 @@
 		</div>
 	</nav>
 
+	<!--==============-->
+
+	  
 	<div class="container mt-2 mb-2">
 		  <p>Your Classes</p>
 		  <hr>
@@ -44,42 +47,42 @@
 			<div class="row flex-nowrap gap-3 p-3">
 			{% for course in courses %}
 				<!--CARD TEMPLATE-->
-				<div class="card text-white bg-secondary col-xs-4">
-					<div class="card-body text-center">
+				<div class="card text-white bg-secondary col-xs-4 p-2">
+					<div class="card-body text-center d-flex flex-column">
 						<h5 class="card-title text-wrap">{{ course.name }}</h5>
 						<p class="card-text">{{ course.course_code }}</p>
 						<hr>
 						<p class="card-text"><small>Last Meeting: {{ course.end_date }}</small></p>
 						<img class="card-img-top" src="../static/streaming_app/images/Content.png" alt="Card image cap">
+						<a href="{% url 'course' course.course_code %}" class="btn btn-primary mt-2">Go To Course Homepage</a>
 					</div>
-					<a href="{% url 'course' course.course_code %}" class="btn btn-primary ms-4 me-4 mb-3">Go To Course Homepage</a>
 				</div>
 				<!--==============-->
-			{% endfor %}
+				{% endfor %}
 			</div>
-		  </div>
+		</div>
 	</div>
-
+	
     <div class="container mt-2 mb-2">
-		  <p>Your Clubs and Organizations</p>
-		  <hr>
-
-		  <!--Class Scrolling Group-->
-		  <div class="container horizontal-scrollable">
+		<p>Your Clubs and Organizations</p>
+		<hr>
+		
+		<!--Class Scrolling Group-->
+		<div class="container horizontal-scrollable">
 			<div class="row flex-nowrap gap-3 p-3">
-			{% for club in clubs %}
+				{% for club in clubs %}
 				<!--CARD TEMPLATE-->
-				<div class="card text-white bg-secondary col-xs-4">
-					<div class="card-body text-center">
-						<h5 class="card-title text-wrap">{{ club.name }}</h>
+				<div class="card text-white bg-secondary col-xs-4 p-2">
+					<div class="card-body text-center d-flex flex-column">
+						<h5 class="card-title text-wrap">{{ club.name }}</h5>
 						<hr>
-						<p class="card-text"><small>Last Meeting:</small></p>
+						<p class="card-text"><small>Last Meeting: {{ course.end_date }}</small></p>
 						<img class="card-img-top" src="../static/streaming_app/images/Content.png" alt="Card image cap">
+						<a href="{% url 'club' club.name %}" class="btn btn-primary mt-2">Go To Club Homepage</a>
 					</div>
-					<a href="{% url 'club' club.name %}" class="btn btn-primary ms-4 me-4 mb-3">Go To Organization</a>
 				</div>
 				<!--==============-->
-			{% endfor %}
+				{% endfor %}
 			</div>
 		  </div>
 	</div>
