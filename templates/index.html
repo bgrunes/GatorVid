@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<!-- For Juno Testing Visuals
+	<link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
+
+	<link rel="stylesheet" href="../static/streaming_app/styles.css">
+	{% load static %}
+	<link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
+</head>
+<body>
+	<!--NavBar-->
+	<nav class="navbar navbar-expand navbar-dark bg-secondary">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+			<ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
+				<li class="nav-item">
+					<a class="nav-link active" href="{% url 'bard' %}">Bard</a>
+				</li>
+				<li class="nav-item">
+					<a class="navbar-brand" href="{% url 'account' %}">
+						<img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
+						<!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+					</a>
+				</li>
+			</ul>
+		</div>
+		</div>
+	</nav>
+
+	<!--==============-->
+
+	  
+	<div class="container mt-2 mb-5">
+		  <p>Your Classes</p>
+		  <hr>
+
+		  <!--Class Scrolling Group-->
+		  <div class="container horizontal-scrollable">
+			<div class="row flex-nowrap gap-3 p-3">
+			{% for course in courses %}
+				<!--CARD TEMPLATE-->
+				<div class="card text-white bg-secondary col-xs-4 p-2">
+					<div class="card-body text-center d-flex flex-column">
+						<h5 class="card-title text-wrap">{{ course.name }}</h5>
+						<p class="card-text">{{ course.course_code }}</p>
+						<hr>
+						<p class="card-text"><small>Last Meeting: {{ course.end_date }}</small></p>
+						<img class="card-img-top" src="../static/streaming_app/images/Content.png" alt="Card image cap">
+						<a href="{% url 'course' course.course_code %}" class="btn btn-primary mt-2">Go To Course Homepage</a>
+					</div>
+				</div>
+				<!--==============-->
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+	
+    <div class="container mt-2 mb-5">
+		<p>Your Clubs and Organizations</p>
+		<hr>
+		
+		<!--Class Scrolling Group-->
+		<div class="container horizontal-scrollable">
+			<div class="row flex-nowrap gap-3 p-3">
+				{% for club in clubs %}
+				<!--CARD TEMPLATE-->
+				<div class="card text-white bg-secondary col-xs-4 p-2">
+					<div class="card-body text-center d-flex flex-column">
+						<h5 class="card-title text-wrap">{{ club.name }}</h5>
+						<hr>
+						<p class="card-text"><small>Last Meeting: {{ course.end_date }}</small></p>
+						<img class="card-img-top" src="../static/streaming_app/images/Content.png" alt="Card image cap">
+						<a href="{% url 'club' %}" class="btn btn-primary mt-2">Go To Club Homepage</a>
+					</div>
+				</div>
+				<!--==============-->
+				{% endfor %}
+			</div>
+		  </div>
+	</div>
+
+	<footer class="container text-center mt-5">
+		<hr>
+		<p><small>GatorVid, Team Two, UF, All rights reserved. 2023©</small></p>
+	</footer>
+</body>
+</html>

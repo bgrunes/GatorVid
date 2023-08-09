@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Account</title>
+        <!-- For Juno Testing Visuals
+        <link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
+
+        <link rel="stylesheet" href="../static/streaming_app/styles.css">
+        {% load static %}
+        <link rel="stylesheet" href={% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}>
+
+        <style>
+            .vertical-line {
+                border-right: 2px solid #000; /* Change color and size as needed */
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <!--NavBar-->
+        <nav class="navbar navbar-expand navbar-dark bg-secondary">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'bard' %}">Bard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'account' %}">
+                            <img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
+                            <!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!--Header-->
+            <div class="row mt-5">
+                <div class="col-auto">
+                    <img src="../static/streaming_app/images/random_profile_pic.jpg" alt="Example Profile Picture" width=250 height="250" class="rounded-circle">
+                </div>
+                <div class="col-auto me-auto">
+                    <h4>Rebecca Lewis</h4>
+                    <h6>LewisR@ufl.edu</h6>
+                    <p>Computer Science</p>
+                </div>
+                <div class="col-auto">
+                    <h6>Points</h6>
+                    <div class="container" style="background-color: #dcdcdc; border-radius: 10px;">
+                        <h4>240</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!--Biography-->
+            <div class="row">
+                <div class="col mt-4">
+                    <h5>Your Account</h5>
+                    <hr class="mb-4">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col vertical-line">
+                    <h4>Biography</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Etiam sit amet nisl purus in mollis nunc sed. A scelerisque purus semper eget. Arcu cursus euismod quis viverra nibh cras pulvinar. Phasellus egestas tellus rutrum tellus. Mi eget mauris pharetra et ultrices neque ornare aenean. Ut venenatis tellus in metus vulputate eu scelerisque. Iaculis urna id volutpat lacus laoreet non curabitur gravida arcu. Est lorem ipsum dolor sit amet. Rhoncus est pellentesque elit ullamcorper.</p>
+                </div>
+                <div class="col-auto">
+                    <div class="mb-2">
+                        <img src="../static/streaming_app/images/discord_logo2.jpg" alt="Discord Logo" height="60" width="60" class="me-2">
+                        Discord
+                    </div>
+                    <div class="mb-2">
+                        <img src="../static/streaming_app/images/linkedin_logo2.jpg" alt="Discord Logo" height="60" width="60" class="me-2">
+                        LinkedIn
+                    </div>
+                    <div class="mb-2">
+                        <img src="../static/streaming_app/images/facebook_logo.png" alt="Discord Logo" height="60" width="60" class="me-2">
+                        Facebook
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h3>Available Rewards</h3>
+                    <hr class="mb-4">
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-md-5 me-2 mb-2" style="background-color: #dcdcdc; border-radius: 10px; padding: 10px">
+                    <h6>Domino's Pizza Coupon</h6>
+                    <img src="../static/streaming_app/images/random_qr_code.png" alt="QR Code" height="100" width="100" align="right">
+                    <h4>BOGO 50% OFF</h4>
+                    <p>Buy one get one 50% off any Medium to topping pizza. Delivery or Pickup.</p>
+                </div>
+                <div class="col-md-5" style="background-color: #dcdcdc; border-radius: 10px; padding: 10px">
+                    <h6>LinkedIn Learning Discount</h6>
+                    <img src="../static/streaming_app/images/random_qr_code.png" alt="QR Code" height="100" width="100" align="right">
+                    <h4>5 Free Video Lectures</h4>
+                    <p>Any 5 video lectures are free with the creation of an account and app data.</p>
+                </div>
+            </div>
+            <div class="row" style="padding-top: 100px">
+                <div class="col">
+                    <h5>Need to talk to an advisor?</h5>
+                    <hr class="mb=4">
+                    <h6>Schedule an Appointment</h6>
+                    <h6>Walk-In Advising</h6>
+                </div>
+            </div>
+        </div>
+
+        <footer class="container text-center mt-5">
+            <hr>
+            <p><small>GatorVid, Team Two, UF, All rights reserved. 2023©</small></p>
+        </footer>
+    </body>
+</html>
