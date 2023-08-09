@@ -1,6 +1,7 @@
 import os
 
 from django.db.models import F
+from django import forms
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.views.generic import ListView
@@ -8,9 +9,12 @@ from django.conf import settings
 from django.shortcuts import render, get_object_or_404
 from .models import Course, Club, Question, Choice
 from googleapiclient.discovery import build
+from bardapi import Bard
+from dotenv import load_dotenv
 
 
 # Create your views here.
+# Author: Brandon Grunes
 def login_view(request):
     return render(request, 'login.html')
 
@@ -86,6 +90,31 @@ def video_view(request, course_code):
     }
 
     return render(request, 'video.html', context)
+
+
+def bard_view(request):
+    if request.method == 'POST':
+        content1 = ''
+        load_dotenv()
+        token = os.getenv("BARD_API_KEY")
+        bard = Bard(token=token)
+        form_id = request.POST.get('form_id')
+        if form_id == 'form1':
+            result = bard.get_answer("Give me a single random motivational quote.")
+            content1 = result['content']
+            print(content1)
+            return render(request, 'bard.html', {'content1': content1})
+
+        elif form_id == 'form2':
+            form = request.POST.get('form_id', '')
+
+            result = bard.get_answer(form)
+            content1 = result['content']
+            print(content1)
+            return render(request, 'bard.html', {'content1': content1})
+
+    else:
+        return render(request, 'bard.html')
 
 
 def quiz(request, course_code):

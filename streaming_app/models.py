@@ -1,3 +1,5 @@
+# Author: Brandon Grunes
+
 from datetime import timezone, datetime
 from django.db import models
 from googleapiclient.discovery import build

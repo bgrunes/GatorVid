@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Bard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css' %}">
+</head>
+
+<body>
+<!--NavBar-->
+    <nav class="navbar navbar-expand navbar-dark bg-secondary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'bard' %}">Bard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="{% url 'account' %}">
+                            <img src="../static/streaming_app/images/icons8-male-user-94.png" class="img-fluid" alt="Account" width="40" height="40">
+                            <!--<a target="_blank" href="https://icons8.com/icon/492ILERveW8G/male-user">Male User</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>-->
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <h2><center>Google Bard Helper</center></h2>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Google_Bard_logo.svg" width = "50" height = "50" class="d-block mx-auto w-25">
+
+    <div>
+        <form id="form1" action="{% url 'bard' %}" method="post" style="width: 800px; margin: auto;">
+        {% csrf_token %}
+            <label for="motivation"></label>
+            <input type="hidden" name="form_id" value="form1">
+            <button type="submit" class="btn btn-primary">Motivate Me!</button>
+        </form>
+
+        <textarea name="answer1" id="form1" rows="2" class="form-control" > {{ content1 }}</textarea>
+    </div>
+
+
+    <div>
+        <form id="form2" action="{%  url 'bard' %}" method="post" style="width: 800px; margin: auto;">
+        {%  csrf_token %}
+            <label for="question">Your question:</label>
+            <input type="hidden" name="form_id" value="form2">
+            <input type="text" name="question" id="question" class="form-control">
+            <button type="submit" class="btn btn-primary">Submit!</button>
+        </form>
+
+        <textarea name="answer2" id="form2" rows="45" class="form-control" >{{ content1 }}</textarea>
+    </div>
+
+    <footer class="container text-center mt-5">
+            <hr>
+            <p><small>GatorVid, Team Two, UF, All rights reserved. 2023©</small></p>
+    </footer>
+
+</body>
+</html>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>{{ course.name }}</title>
         <!-- For Juno Testing Visuals -->
         <!-- <link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
     
@@ -15,14 +15,14 @@
         <!--NavBar-->
         <nav class="navbar navbar-expand navbar-dark bg-secondary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="">GatorVid</a>
+                <a class="navbar-brand" href="{% url 'index' %}">GatorVid</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
                     <ul class="nav navbar-nav ml-auto w-100 justify-content-end align-bottom">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{% url 'index' %}">Home</a>
+                            <a class="nav-link active" href="{% url 'bard' %}">Bard</a>
                         </li>
                         <li class="nav-item">
                             <a class="navbar-brand" href="{% url 'account' %}">
