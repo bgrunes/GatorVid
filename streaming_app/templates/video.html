@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ title }}</title>
 	<!-- For Juno Testing Visuals -->
-	<!-- <link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" href="../static/streaming_app/bootstrap-5.3.0-dist/css/bootstrap.min.css">
 
 	<link rel="stylesheet" href="../static/streaming_app/styles.css">
 	{% load static %}
@@ -37,27 +37,34 @@
 
     <div class="container mt-2 mb-5">
         <div class="row d-flex align-items-center">
-            <div class="col-lg-auto text-center">
+            <div class="col">
                 <p class="mb-1 mt-4"><small>Currently Watching:</small></p>
                 <h3>{{ title }}</h3>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+                <div class="ratio-md ratio-16x9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ video_id }}" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
             <div class="col">
-                <div id="carouselExampleIndicators" class="carousel slide carousel-dark" data-bs-ride="carousel" data-bs-interval="false">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-dark align-bottom" data-bs-ride="carousel" data-bs-interval="false">
                     <div class="carousel-indicators">
                       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <div class="card">
-                            <div class="card-body m-5">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <div class="text-start text-md-end">
+                            <p class="mb-1 mt-4"><small>{{ course.course_code }}</small></p>
+                            <h4>Question</h4>
+                        </div>
+                        <div class="carousel-item active">
+                            <div class="card">
+                                <div class="card-body m-5">
+                                    <h5 class="card-title">Question 1</h5>
+                                    <p class="card-text">What is the issue with using floating point numbers in calculations?</p>
+                                    <textarea></textarea><br>
+                                    <a href="#" class="btn btn-primary">Submit</a>
+                                </div>
                             </div>
-                          </div>
                       </div>
                       <div class="carousel-item">
                         2
